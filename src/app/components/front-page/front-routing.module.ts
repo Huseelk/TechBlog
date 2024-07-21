@@ -13,14 +13,14 @@ const routes: Routes = [
     path: "", 
     component: FrontPageComponent,
     children: [
-      { path: 'home', component: HomePageComponent},
+      { path: 'home',  redirectTo: 'pages/angular-news', pathMatch: 'full'},
       { 
         path: "article", 
         component: PagesListComponent,
         canActivate: [SubscriberGuard]
       },
       { path: "pages/:url", component: PagesComponent },
-      { path: '**', pathMatch: 'full', redirectTo: 'home' }
+      { path: '**', pathMatch: 'full', redirectTo: 'pages/angular-news' }
     ]
   }
 ];
